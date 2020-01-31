@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Mundo.gd" type="Script" id=1]
+[ext_resource path="res://Paco.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Bebida.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interfaz.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -449.865, -288.779, 0, 0, 0, 0, 567.205, -286.728, 0, 0, 0, 0, 571.307, 305.88, 0, 0, 0, 0, -453.966, 303.829, 0, 0, 0, 0, -449.865, -288.779 )
+}
+
+[node name="Mundo" type="Node"]
+script = ExtResource( 1 )
+Paco = ExtResource( 2 )
+Bebida = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 59.9448, 10.5399 )
+
+[node name="PacoTimer" type="Timer" parent="."]
+
+[node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="InicioTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="PosicionDeInicio" type="Position2D" parent="."]
+position = Vector2( 320, 480 )
+
+[node name="Camino" type="Path2D" parent="."]
+position = Vector2( 0, 6.15167 )
+curve = SubResource( 1 )
+
+[node name="PacoPosicion" type="PathFollow2D" parent="Camino"]
+position = Vector2( -449.865, -288.779 )
+rotation = 0.00200831
+
+[node name="Interfaz" parent="." instance=ExtResource( 5 )]
+[connection signal="golpe" from="Player" to="." method="recibe_parte"]
+[connection signal="timeout" from="PacoTimer" to="." method="_on_PacoTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="InicioTimer" to="." method="_on_InicioTimer_timeout"]
+[connection signal="iniciar_juego" from="Interfaz" to="." method="nuevo_juego"]

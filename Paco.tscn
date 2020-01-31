@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Paco.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Paco/PACO_GUATON_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Paco/PACO_GUATON_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Paco/PACO_GUATON_3.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 7.26559, 10.8956 )
+
+[node name="Paco" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource( 1 )
+velocidad_min = 150
+velocidad_max = 250
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.340546, 0.681124 )
+scale = Vector2( 0.04, 0.04 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="Visibilidad" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0.096857, -0.0968561 )
+scale = Vector2( 0.73849, 1.00969 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+[connection signal="screen_exited" from="Visibilidad" to="." method="_on_Visibilidad_screen_exited"]
