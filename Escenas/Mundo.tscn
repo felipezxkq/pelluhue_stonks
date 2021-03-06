@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Mundo.gd" type="Script" id=1]
-[ext_resource path="res://Paco.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Bebida.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Interfaz.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/Mundo.gd" type="Script" id=1]
+[ext_resource path="res://Escenas/Paco.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenas/Bebida.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Escenas/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Escenas/Interfaz.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
