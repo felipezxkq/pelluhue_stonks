@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset3.png-39a0a56ab40ece94d9ea8dc3aaa11a4d.stex"
+path="res://.import/Tileset3.png-3af392233f81e4e8d3b3a5ee0248c744.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Tilesets/Tileset3.png"
-dest_files=[ "res://.import/Tileset3.png-39a0a56ab40ece94d9ea8dc3aaa11a4d.stex" ]
+source_file="res://Recursos pokemon/Tilesets/Tileset3.png"
+dest_files=[ "res://.import/Tileset3.png-3af392233f81e4e8d3b3a5ee0248c744.stex" ]
 
 [params]
 
