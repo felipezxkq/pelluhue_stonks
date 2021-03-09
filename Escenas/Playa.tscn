@@ -100,9 +100,10 @@ region_enabled = true
 region_rect = Rect2( 80, 16, 16, 16 )
 
 [node name="roca3" type="Sprite" parent="."]
+position = Vector2( 1.06067, -39.9515 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 0, 48, 16, 48 )
+region_rect = Rect2( 112, 32, 16, 16 )
 
 [node name="silla1" type="Sprite" parent="."]
 texture = ExtResource( 1 )

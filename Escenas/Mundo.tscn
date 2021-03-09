@@ -3,9 +3,9 @@
 [ext_resource path="res://Scripts/Mundo.gd" type="Script" id=1]
 [ext_resource path="res://Escenas/Paco.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Escenas/Bebida.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Escenas/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Escenas/Interfaz.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Tilesets/Playa.tres" type="TileSet" id=6]
+[ext_resource path="res://Tilesets/Playa.tres" type="TileSet" id=4]
+[ext_resource path="res://Escenas/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Escenas/Interfaz.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -18,10 +18,11 @@ Paco = ExtResource( 2 )
 Bebida = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 6 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
 format = 1
 
-[node name="Player" parent="." instance=ExtResource( 4 )]
+[node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 59.9448, 10.5399 )
 
 [node name="PacoTimer" type="Timer" parent="."]
@@ -45,9 +46,8 @@ curve = SubResource( 1 )
 position = Vector2( -449.865, -288.779 )
 rotation = 0.00200831
 
-[node name="Interfaz" parent="." instance=ExtResource( 5 )]
+[node name="Interfaz" parent="." instance=ExtResource( 6 )]
 [connection signal="golpe" from="Player" to="." method="recibe_parte"]
 [connection signal="timeout" from="PacoTimer" to="." method="_on_PacoTimer_timeout"]
-[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="InicioTimer" to="." method="_on_InicioTimer_timeout"]
 [connection signal="iniciar_juego" from="Interfaz" to="." method="nuevo_juego"]

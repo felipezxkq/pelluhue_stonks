@@ -1,41 +1,146 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Player/player 1.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Player/player 2.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Player/player 3.png" type="Texture" id=4]
+[ext_resource path="res://Recursos pokemon/Sprites/Gabo/mini gabo.png" type="Texture" id=2]
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6.39798, 9.94119 )
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "quieto",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "caminar",
-"speed": 5.0
-} ]
+[sub_resource type="Animation" id=6]
+resource_name = "Camina_abajo"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 6.21478, 9.94119 )
+[sub_resource type="Animation" id=7]
+resource_name = "Camina_arriba"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Camina_derecha"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 7, 8 ]
+}
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=10]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=11]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
 
 [node name="Player" type="Area2D"]
 position = Vector2( 55.102, 28.1676 )
 script = ExtResource( 1 )
 Velocidad = 100
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.05, 0.05 )
-frames = SubResource( 3 )
-animation = "caminar"
-playing = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+position = Vector2( 0, 0.500002 )
+shape = SubResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2( 10, 10 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.20327, -0.270132 )
+scale = Vector2( 0.931539, 1 )
+texture = ExtResource( 2 )
+hframes = 9
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Camina_abajo = SubResource( 6 )
+anims/Camina_arriba = SubResource( 7 )
+anims/Camina_derecha = SubResource( 4 )
+anims/Camina_izquierda = SubResource( 4 )
+anims/Quieto_abajo = SubResource( 8 )
+anims/Quieto_arriba = SubResource( 9 )
+anims/Quieto_derecha = SubResource( 10 )
+anims/Quieto_izquierda = SubResource( 11 )
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
 [connection signal="golpe" from="." to="." method="golpea"]
