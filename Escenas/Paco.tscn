@@ -5,8 +5,7 @@
 [ext_resource path="res://Sprites/Paco/PACO_GUATON_2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Paco/PACO_GUATON_3.png" type="Texture" id=4]
 
-
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
@@ -26,8 +25,8 @@ velocidad_max = 250
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.340546, 0.681124 )
 scale = Vector2( 0.04, 0.04 )
-frames = SubResource( 3 )
-frame = 1
+z_index = 9
+frames = SubResource( 1 )
 playing = true
 
 [node name="Visibilidad" type="VisibilityNotifier2D" parent="."]

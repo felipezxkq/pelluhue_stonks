@@ -55,7 +55,7 @@ func _process(delta):
 #		$Sprite_player.animation = "frente"
 
 func _on_Player_body_entered(body):
-	emit_signal("golpea")
+	emit_signal("golpe")
 	$CollisionShape2D.disabled = true
 	
 func inicio(pos):

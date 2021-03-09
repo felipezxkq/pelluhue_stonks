@@ -46,6 +46,9 @@ text = "Pelluhue stonks
 "
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BotonJugar" type="Button" parent="."]
 anchor_left = 0.5

@@ -3,10 +3,10 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Recursos pokemon/Sprites/Gabo/mini gabo.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6.39798, 9.94119 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "Camina_abajo"
 length = 0.6
 loop = true
@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 1, 2 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "Camina_arriba"
 length = 0.6
 loop = true
@@ -57,7 +57,7 @@ tracks/0/keys = {
 "values": [ 7, 8 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -71,7 +71,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -100,7 +100,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -121,7 +121,7 @@ Velocidad = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.500002 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2( 10, 10 )
@@ -129,18 +129,19 @@ zoom = Vector2( 10, 10 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.20327, -0.270132 )
 scale = Vector2( 0.931539, 1 )
+z_index = 10
 texture = ExtResource( 2 )
 hframes = 9
 frame = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Camina_abajo = SubResource( 6 )
-anims/Camina_arriba = SubResource( 7 )
+anims/Camina_abajo = SubResource( 2 )
+anims/Camina_arriba = SubResource( 3 )
 anims/Camina_derecha = SubResource( 4 )
 anims/Camina_izquierda = SubResource( 4 )
-anims/Quieto_abajo = SubResource( 8 )
-anims/Quieto_arriba = SubResource( 9 )
-anims/Quieto_derecha = SubResource( 10 )
-anims/Quieto_izquierda = SubResource( 11 )
+anims/Quieto_abajo = SubResource( 5 )
+anims/Quieto_arriba = SubResource( 6 )
+anims/Quieto_derecha = SubResource( 7 )
+anims/Quieto_izquierda = SubResource( 8 )
 [connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
 [connection signal="golpe" from="." to="." method="golpea"]
