@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Mundo.gd" type="Script" id=1]
 [ext_resource path="res://Escenas/Paco.tscn" type="PackedScene" id=2]
@@ -7,7 +7,24 @@
 [ext_resource path="res://Escenas/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Escenas/Interfaz.tscn" type="PackedScene" id=6]
 
-[sub_resource type="Curve2D" id=1]
+[sub_resource type="Animation" id=3]
+resource_name = "Día_Noche"
+length = 15.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 5, 10, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.964706, 0.509804, 0.509804, 1 ), Color( 0.25098, 0.247059, 0.305882, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -449.865, -288.779, 0, 0, 0, 0, 567.205, -286.728, 0, 0, 0, 0, 571.307, 305.88, 0, 0, 0, 0, -453.966, 303.829, 0, 0, 0, 0, -449.865, -288.779 )
 }
@@ -18,8 +35,11 @@ Paco = ExtResource( 2 )
 Bebida = ExtResource( 3 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-position = Vector2( 67.0238, -13.5289 )
-color = Color( 0.501961, 0.482353, 0.482353, 1 )
+position = Vector2( 109.726, -31.5086 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasModulate"]
+autoplay = "Día_Noche"
+"anims/Día_Noche" = SubResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
@@ -62,7 +82,7 @@ position = Vector2( 517.777, 390.102 )
 
 [node name="Camino" type="Path2D" parent="."]
 position = Vector2( 0, 6.15167 )
-curve = SubResource( 1 )
+curve = SubResource( 2 )
 
 [node name="PacoPosicion" type="PathFollow2D" parent="Camino"]
 position = Vector2( -449.865, -288.779 )
