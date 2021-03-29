@@ -1,6 +1,9 @@
-[gd_resource type="TileSet" load_steps=2 format=2]
+[gd_resource type="TileSet" load_steps=3 format=2]
 
 [ext_resource path="res://Sprites/Playa.png" type="Texture" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 4.23317, 7.58214, 9.25664, 0.884186, 15.6755, 9.25662, 15.1173, 14.001, 8.97755, 14.8383, 1.72144, 14.5592, 0.046936, 9.25662 )
 
 [resource]
 0/name = "fogata"
@@ -13,9 +16,16 @@
 0/navigation_offset = Vector2( 8, 8 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
 0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 0/z_index = 0
 1/name = "fogata2"
 1/texture = ExtResource( 1 )

@@ -1,4 +1,4 @@
-extends Area2D
+extends KinematicBody2D
 export (int) var Velocidad
 var Movimiento = Vector2()
 var Limite
@@ -39,7 +39,9 @@ func _process(delta):
 	if Movimiento.length() > 0: #Verificar si hay movimiento
 		Movimiento = Movimiento.normalized() * Velocidad #Normalizar velocidad
 		
-	position += Movimiento * delta #Actualizar posiciones x,y de Player
+		
+	move_and_collide(Movimiento * delta)
+	#position += Movimiento * delta #Actualizar posiciones x,y de Player
 	position.x = clamp(position.x, 0, Limite.x)
 	position.y = clamp(position.y, 0, Limite.y)
 	
@@ -56,7 +58,7 @@ func _process(delta):
 
 func _on_Player_body_entered(body):
 	emit_signal("golpe")
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = false
 	
 func inicio(pos):
 	position = pos

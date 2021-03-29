@@ -114,7 +114,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="KinematicBody2D"]
 position = Vector2( 55.102, 28.1676 )
 script = ExtResource( 1 )
 Velocidad = 100
@@ -143,5 +143,3 @@ anims/Quieto_abajo = SubResource( 5 )
 anims/Quieto_arriba = SubResource( 6 )
 anims/Quieto_derecha = SubResource( 7 )
 anims/Quieto_izquierda = SubResource( 8 )
-[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
-[connection signal="golpe" from="." to="." method="golpea"]

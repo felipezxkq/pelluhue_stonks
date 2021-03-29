@@ -27,6 +27,7 @@ position = Vector2( 0.340546, 0.681124 )
 scale = Vector2( 0.04, 0.04 )
 z_index = 9
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="Visibilidad" type="VisibilityNotifier2D" parent="."]
