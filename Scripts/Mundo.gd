@@ -32,7 +32,6 @@ func iniciar_bebidas():
 func recibe_parte():
 	Stonks = Stonks - 1
 	$Interfaz.update_stonks(Stonks)	
-	# código para restar stonks
 	pass
 	
 	

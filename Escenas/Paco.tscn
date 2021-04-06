@@ -17,17 +17,15 @@ animations = [ {
 extents = Vector2( 7.26559, 10.8956 )
 
 [node name="Paco" type="RigidBody2D"]
-gravity_scale = 0.0
 script = ExtResource( 1 )
-velocidad_min = 150
-velocidad_max = 250
+velocidad_min = 70
+velocidad_max = 150
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.340546, 0.681124 )
-scale = Vector2( 0.04, 0.04 )
+scale = Vector2( 0.025, 0.025 )
 z_index = 9
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="Visibilidad" type="VisibilityNotifier2D" parent="."]
