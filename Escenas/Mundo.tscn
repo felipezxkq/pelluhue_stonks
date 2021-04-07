@@ -70,6 +70,7 @@ current = true
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="PacoTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [node name="ScoreTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -87,8 +88,10 @@ position = Vector2( 0, 6.15167 )
 curve = SubResource( 2 )
 
 [node name="PacoPosicion" type="PathFollow2D" parent="Camino"]
-position = Vector2( -449.865, -288.779 )
+position = Vector2( 549.531, 13.2287 )
 rotation = 0.00200831
+h_offset = 1000.0
+v_offset = 300.0
 
 [node name="Interfaz" parent="." instance=ExtResource( 6 )]
 [connection signal="golpe" from="Player" to="." method="recibe_parte"]

@@ -8,12 +8,17 @@ func _ready():
 
 
 func nuevo_juego():
-	Stonks = 5;
+	Stonks = 7;
 	$Player.inicio($PosicionDeInicio.position)
 	$InicioTimer.start()
+	iniciar_bebidas()
 	$Interfaz.mostrar_mensaje("Listo!")
 	$Interfaz.update_stonks(Stonks)
-	iniciar_bebidas()
+	var P = Paco.instance()
+	add_child(P)
+	var M = Paco.instance()
+	add_child(M)
+	
 	
 
 func iniciar_bebidas():
@@ -47,12 +52,8 @@ func _on_InicioTimer_timeout():
 
 
 func _on_PacoTimer_timeout():
-	$Camino/PacoPosicion.set_offset(randi())
-	
-	var P = Paco.instance()
-	add_child(P)
-# warning-ignore:unused_variable
-	var d = $Camino/PacoPosicion.rotation  # Selecciona una direccion
-	P.position = $Camino/PacoPosicion.position
-	P.set_linear_velocity(Vector2(rand_range(P.velocidad_min, P.velocidad_max), 0))
+	#var P = Paco.instance()
+	#add_child(P)
+	pass
+
 	
