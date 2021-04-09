@@ -14,10 +14,6 @@ func nuevo_juego():
 	iniciar_bebidas()
 	$Interfaz.mostrar_mensaje("Listo!")
 	$Interfaz.update_stonks(Stonks)
-	var P = Paco.instance()
-	add_child(P)
-	var M = Paco.instance()
-	add_child(M)
 	
 	
 

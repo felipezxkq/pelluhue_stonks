@@ -40,23 +40,16 @@ func _process(delta):
 		Movimiento = Movimiento.normalized() * Velocidad #Normalizar velocidad
 		
 		
-	move_and_collide(Movimiento * delta)
-	#position += Movimiento * delta #Actualizar posiciones x,y de Player
+	var colision = move_and_collide(Movimiento * delta)
+	if colision != null and "Paco" in colision.collider.name:
+		emit_signal("golpe")
+
 	position.x = clamp(position.x, 0, Limite.x)
 	position.y = clamp(position.y, 0, Limite.y)
 	
-	
-#	if Movimiento.x != 0:
-#		$Sprite_player.animation = "lado"
-#		$Sprite_player.flip.h = Movimiento.x < 0
-#		$Sprite_player.flip.v = false
-#	elif Movimiento.y != 0:
-#		$Sprite_player.animation = "espalda"
-#		$Sprite_player.flip_v = Movimiento.y > 0
-#	else:
-#		$Sprite_player.animation = "frente"
 
 func _on_Player_body_entered(body):
+	print("golpe")
 	emit_signal("golpe")
 	$CollisionShape2D.disabled = false
 	
